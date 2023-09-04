@@ -20,7 +20,8 @@ public class Weapon : MonoBehaviour
 
 
     public List<AudioClip> audioClipsList = new List<AudioClip>();
-  
+
+    [SerializeField] Recoil RecoilObject;
 
     bool canShoot = true;
 
@@ -31,7 +32,10 @@ public class Weapon : MonoBehaviour
         if (Input.GetMouseButton(0) && canShoot )
         {
             StartCoroutine(Shoot());
-         
+
+            if (RecoilObject.recoil <= 0.2f)
+                RecoilObject.recoil += 0.1f;
+            else RecoilObject.recoil = 0;
         }
 
       
