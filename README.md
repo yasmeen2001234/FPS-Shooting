@@ -9,4 +9,5 @@ https://www.youtube.com/watch?v=QYF7ixeB8Rg
 
 Demo: 
 
-https://github.com/yasmeen2001234/FPS-Shooting/assets/83319374/ed62f46f-01fe-4d62-9cf6-e491de01f9ea
+
+![demo](https://github.com/yasmeen2001234/FPS-Shooting/assets/83319374/6c5d076e-33b2-4a0d-a111-5e046893d51d)
