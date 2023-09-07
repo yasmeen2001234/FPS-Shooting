@@ -12,7 +12,9 @@ public class Weapon : MonoBehaviour
 
 
     [SerializeField] GameObject hitEffect;
- 
+
+    [SerializeField] GameObject bulletHoleEffect;
+
     [SerializeField] float FireRate = 0f;
 
  
@@ -63,6 +65,9 @@ public class Weapon : MonoBehaviour
         if (Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, range))
         {
             HitImpact(hit);
+            BulletHoleImpact(hit);
+
+
         }
     }
 
@@ -71,6 +76,18 @@ public class Weapon : MonoBehaviour
     {
         GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(impact, .1f);
+
+    }
+    // creating a visual impact effect at the point where a raycast hit an object
+    private void BulletHoleImpact(RaycastHit hit)
+    {
+        GameObject impact = Instantiate(bulletHoleEffect, hit.point, Quaternion.LookRotation(hit.normal));
+
+        Vector3 forwardVector = impact.transform.forward;
+
+        impact.transform.Translate(forwardVector * 0.1f, Space.World);
+
+        Destroy(impact, 3f);
 
     }
 
